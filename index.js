@@ -1,38 +1,28 @@
-const express = require('express');
-require('dotenv').config();
+// Import the necessary modules and functions
+import { shopifyApi } from '@shopify/shopify-api';
+import { ShopifyRestResources } from '@shopify/shopify-api/dist/rest/types';
 
-const Shopify = require('shopify-api-node');
+// Define your config parameters
+const config = {
+  apiKey: 'f407beb8cca59260ce936842917934cd',
+  apiSecretKey: 'c537296e3cc78220350920f12d7c23d7',
+  scopes: ['read_products', 'write_orders'], // Example scopes: read_products, write_orders
+  hostName: 'brewedonline.myshopify.com',
+};
 
-const app = express();
-const port = process.env.PORT || 3000;
+// Create the Shopify instance
+const shopify = shopifyApi<ShopifyRestResources>(config);
 
-console.log('Environment variables:');
-console.log('SHOP_NAME:', process.env.SHOP_NAME);
-console.log('SHOPIFY_API_KEY:', process.env.SHOPIFY_API_KEY);
-console.log('SHOPIFY_API_SECRET_KEY:', process.env.SHOPIFY_API_SECRET_KEY);
-console.log('SHOPIFY_API_VERSION:', process.env.SHOPIFY_API_VERSION);
+// Use the Shopify instance
+// Example: Output the Shopify API library version
+console.log(`Shopify API Library Version: ${shopify.config.libraryVersion}`);
 
-const shopify = new Shopify({
-  shopName: process.env.SHOP_NAME,
-  apiKey: process.env.SHOPIFY_API_KEY,
-  apiSecretKey: process.env.SHOPIFY_API_SECRET_KEY,
-  apiVersion: process.env.SHOPIFY_API_VERSION,
-});
-
-app.get('/', (req, res) => {
-  console.log('Received GET request');
-  shopify.product
-    .list()
-    .then((products) => {
-      console.log('Products:', products);
-      res.json(products);
-    })
-    .catch((err) => {
-      console.error('Error:', err);
-      res.status(500).send('Error retrieving products');
-    });
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// Example: Access the REST resource
+shopify.rest.products
+  .list()
+  .then((products) => {
+    console.log(products);
+  })
+  .catch((error) => {
+    console.error('Error retrieving products:', error);
+  });

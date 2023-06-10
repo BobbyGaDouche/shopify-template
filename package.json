@@ -1,10 +1,11 @@
 {
+  "type": "module", // Add this line to enable ES modules
   "name": "template",
   "version": "1.0.0",
   "description": "Shopify app template",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node --experimental-modules index.js" // Add "--experimental-modules" flag
   },
   "keywords": [
     "shopify",

@@ -1,4 +1,5 @@
-const { shopifyApi } = require('@shopify/shopify-api');
+import { shopifyApi } from '@shopify/shopify-api'; // Use import syntax
+
 const { ShopifyRestResources } = require('@shopify/shopify-api/dist/rest/types');
 
 const config = {

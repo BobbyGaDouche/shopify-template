@@ -1,0 +1,23 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "Shopify Template ",
+  "main": "index.js",
+  "scripts": {
+    "test": "Run NPM Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Shopify-Template"
+  },
+  "keywords": [
+    "None"
+  ],
+  "author": "BobbyGaDouche",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "shopify-api-node": "^3.12.5"
+  }
+}

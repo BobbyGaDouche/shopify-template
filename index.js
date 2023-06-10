@@ -14,13 +14,15 @@ const shopify = new Shopify({
 });
 
 app.get('/', (req, res) => {
+  console.log('Received GET request');
   shopify.product
     .list()
     .then((products) => {
+      console.log('Products:', products);
       res.json(products);
     })
     .catch((err) => {
-      console.error(err);
+      console.error('Error:', err);
       res.status(500).send('Error retrieving products');
     });
 });

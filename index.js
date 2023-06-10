@@ -9,13 +9,13 @@ const port = process.env.PORT || 3000;
 console.log('Environment variables:');
 console.log('SHOP_NAME:', process.env.SHOP_NAME);
 console.log('SHOPIFY_API_KEY:', process.env.SHOPIFY_API_KEY);
-console.log('SHOPIFY_API_PASSWORD:', process.env.SHOPIFY_API_PASSWORD);
+console.log('SHOPIFY_API_SECRET_KEY:', process.env.SHOPIFY_API_SECRET_KEY);
 console.log('SHOPIFY_API_VERSION:', process.env.SHOPIFY_API_VERSION);
 
 const shopify = new Shopify({
   shopName: process.env.SHOP_NAME,
   apiKey: process.env.SHOPIFY_API_KEY,
-  password: process.env.SHOPIFY_API_PASSWORD,
+  apiSecretKey: process.env.SHOPIFY_API_SECRET_KEY,
   apiVersion: process.env.SHOPIFY_API_VERSION,
 });
 

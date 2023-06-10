@@ -1,10 +1,10 @@
 {
   "name": "template",
   "version": "1.0.0",
-  "description": "Shopify Template ",
+  "description": "Shopify Template",
   "main": "index.js",
   "scripts": {
-    "test": "Run NPM Test"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
